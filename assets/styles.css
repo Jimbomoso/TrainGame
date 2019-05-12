@@ -1,0 +1,28 @@
+
+.headline {
+    text-align: center;
+    background-color: gray;
+    color: gray;
+    padding: 15px;
+    background-image: url("https://s3.jmxbrands.com/product-images/pid_41224-Amish-Wooden-Old-Fashion-Toy-Train--820.jpg");
+    margin-top: 20px;  
+    background-position: 0 -50px;  
+    background-size: cover;
+    height: 250px;
+}
+
+.panel {
+    padding: 1%;
+    margin: 5%;
+}
+
+.panel-title {
+    background-color: grey;
+    color: white;
+    text-align: center;
+}
+
+#add-train-btn {
+    margin: auto;
+}
+

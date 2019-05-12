@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Train Scheduler</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Week 8 assignment for JS, JQuery, and Firebase." />
+    <meta name="classification" content="trainScheduler" />
+
+    <link href="assets/reset.css" rel="stylesheet">
+    <!-- BOOTSTRAP CDN for CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Script for Bootstrap Responsive Support-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <!-- CUSTOM CSS -->
+    <link href="assets/styles.css" rel="stylesheet">
+    <!-- JQUERY CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1 class="headline">Train Scheduler</h1>
+        </header>
+
+        <div class="container-fluid sticky-fix">
+            <div class="row">
+                <div class=" col-xs-12 col-sm-6 col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Add train</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form id="target">
+                                <div class="form-group">
+                                    <label for="train-input">Train Name</label>
+                                    <input type="text" id="train-input" class="form-control"
+                                        placeholder="Enter up to 25 letters or numbers." pattern="[a-zA-Z0-9\s]{3,25}"
+                                        required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="destination-input">Destination</label>
+                                    <input type="text" id="destination-input" class="form-control"
+                                        placeholder="Enter up to 25 letters." pattern="[a-zA-Z\s]{3,25}" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="time-input">First Train Time (HH:MM)</label>
+                                    <input type="text" id="time-input" class="form-control"
+                                        placeholder="Enter military time, example 14:30." pattern="[0-9:]{5}"
+                                        required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="frequency-input">Frequency</label>
+                                    <input type="text" id="frequency-input" class="form-control"
+                                        placeholder="Enter 2 digit for minutes." pattern="[0-9]{2}" required />
+                                </div>
+                                <button type="submit" id="add-train-btn" class="btn btn-primary">Add Train</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Current Train Schedule</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover" id='train-table'>
+                                <thead>
+                                    <tr>
+                                        <th>Train Name</th>
+                                        <th>Destination</th>
+                                        <th>Frequency (min)</th>
+                                        <th>Next Arrival</th>
+                                        <th>Minutes Away</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Javascript -->
+    <script type="text/javascript" src="assets/app.js"></script>
+</body>
+
+</html>
